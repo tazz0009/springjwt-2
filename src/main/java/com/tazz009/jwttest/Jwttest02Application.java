@@ -17,10 +17,10 @@ public class Jwttest02Application {
 		SpringApplication.run(Jwttest02Application.class, args);
 	}
 
-//	@Bean
-//	public BCryptPasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 	
 	@Bean
 	CommandLineRunner run(UserService userService) {
@@ -34,10 +34,6 @@ public class Jwttest02Application {
 			userService.saveUser(User.builder().name("서태웅").username("tazz002").password("1234").build());
 			userService.saveUser(User.builder().name("정대만").username("tazz003").password("1234").build());
 			userService.saveUser(User.builder().name("채치수").username("tazz004").password("1234").build());
-//			userService.saveUser(User.builder().name("강백호").username("tazz001").password(passwordEncoder().encode("1234")).build());
-//			userService.saveUser(User.builder().name("서태웅").username("tazz002").password(passwordEncoder().encode("1234")).build());
-//			userService.saveUser(User.builder().name("정대만").username("tazz003").password(passwordEncoder().encode("1234")).build());
-//			userService.saveUser(User.builder().name("채치수").username("tazz004").password(passwordEncoder().encode("1234")).build());
 			
 			userService.addRoleToUser("tazz001", "ROLE_USER");
 			userService.addRoleToUser("tazz001", "ROLE_MANAGER");
